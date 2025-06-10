@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event SMKN 8 Jember</title>
+  <style>
+    * {
+      text-decoration: none;
+      margin: 0px;
+      padding: 0px;
+    }
+    body {
+      margin: 0px;
+      padding: 0px;
+      font-family: 'Open Sans', sans-serif;
+      background: #f8f8f8;
+      color: #333;
+    }
+    .wrapper {
+      width: 1100px;
+      margin: auto;
+      position: relative;
+    }
+    .logo a {
+      font-size: 50px;
+      font-weight: 800;
+      float: left;
+      font-family: 'Courier New', Courier, monospace;
+      color: #ff9800;
+    }
+    .menu {
+      float: right;
+    }
+    nav {
+      width: 100%;
+      margin: auto;
+      display: flex;
+      line-height: 80px;
+      position: sticky;
+      top: 0;
+      background: rgb(255, 255, 255);
+      z-index: 1;
+      border-bottom: 1px solid #ff9800;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    nav ul li {
+      float: left;
+    }
+    nav ul li a {
+      color: black;
+      font-weight: bold;
+      text-align: center;
+      padding: 0px 16px 0px 16px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+      color: #ff9800;
+    }
+    section {
+      margin: auto;
+      display: flex;
+      margin-bottom: 50px;
+      align-items: center;
+    }
+    .kolom {
+      margin-top: 50px;
+      margin-bottom: 50px;
+      flex: 1;
+    }
+    .kolom .deskripsi {
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'comic sans ms';
+      color: #ff9800;
+    }
+    h2 {
+      font-family: 'comic sans ms';
+      font-weight: 800;
+      font-size: 45px;
+      margin-bottom: 20px;
+      color: #ff9800;
+      width: 100%;
+      line-height: 50px;
+    }
+    .event-list {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .event-card {
+      background: #fff3e0;
+      border-left: 5px solid #ff9800;
+      border-radius: 10px;
+      padding: 1.5rem;
+      flex: 1 1 300px;
+      min-width: 250px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.4s, border-left-color 0.4s;
+    }
+    .event-card:hover {
+      transform: translateY(-8px) scale(1.03) rotate(-1deg);
+      box-shadow: 0 8px 24px rgba(255,152,0,0.15), 0 2px 8px rgba(0,0,0,0.06);
+      border-left-color: #ff5e00;
+    }
+    .event-card h3 {
+      margin-top: 0;
+      color: #ff9800;
+    }
+    .event-card ul {
+      margin: 0.5rem 0 0 1.2rem;
+      padding: 0;
+    }
+    .event-card li {
+      margin-bottom: 0.3rem;
+    }
+    .tbl-biru {
+      background: #ff8800;
+      border-radius: 20px;
+      margin-top: 20px;
+      padding: 15px 20px 15px 20px;
+      color: #FFFFFF;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .tbl-biru:hover {
+      background: #ff5e00;
+      text-decoration: none;
+    }
+    footer {
+      background: #2e1f14;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-radius: 0 0 12px 12px;
+    }
+    /* Loading overlay styles */
+    #loading-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.95);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.7s;
+    }
+    .spinner {
+      border: 8px solid #ffe0b2;
+      border-top: 8px solid #ff9800;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      animation: spin 2s linear infinite;
+      margin-bottom: 16px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+    .loading-text {
+      font-family: 'comic sans ms', cursive;
+      color: #ff9800;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 10px;
+      display: block;
+    }
+    @media screen and (max-width: 991.98px) {
+      .wrapper {
+        width: 90%;
+      }
+      section {
+        display: block;
+      }
+      .event-list {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Overlay -->
+  <div id="loading-overlay">
+    <div>
+      <div class="spinner"></div>
+      <div class="loading-text">Memuat halaman...</div>
+    </div>
+  </div>
+  <nav>
+    <div class="wrapper">
+      <div class="logo"><a href="#">Event</a></div>
+      <div class="menu">
+        <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="tentang-kami.html">Tentang Kami</a></li>
+        <li><a href="jurusan.html">Jurusan</a></li>
+        <li><a href="event.html">Event</a></li>
+        <li><a href="medsos.html">Medsos</a></li>
+        <li><a href="pendaftaran.html">Daftar</a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="wrapper">
+    <section id="event">
+      <div class="kolom">
+        <p class="deskripsi">Event Terbaru SMKN 8 Jember</p>
+        <h2>Event Sekolah</h2>
+        <p>
+          Berikut adalah daftar event menarik yang akan diadakan di SMKN 8 Jember. Jangan lewatkan kesempatan untuk berpartisipasi!
+        </p>
+        <a href="#daftar" class="tbl-biru">Daftar Event</a>
+      </div>
+      <img
+        id="logo-carousel"
+        src="https://smkn8jember.sch.id/wp-content/uploads/2023/01/Logo-SMK-Vektor.png"
+        alt="Event SMKN 8 Jember"
+        style="padding-top:80px;width:100px;height:100px;max-width:400px;border-radius:16px;margin-left:2rem;transition:opacity 0.5s;"
+      />
+    </section>
+
+    <div class="event-list">
+      <div class="event-card">
+        <h3>Gelar Karya Tari dan Menyanyi</h3>
+        <ul>
+          <li>Tanggal: 20 Juni 2025</li>
+          <li>Tempat: Aula SMKN 8 Jember</li>
+          <li>Peserta: Siswa kelas X-XII</li>
+        </ul>
+        <p>Tari berkelompok atau tunggal, serta lomba menyanyi untuk seluruh siswa!</p>
+      </div>
+      <div class="event-card">
+        <h3>Gelar Karya Menggambar</h3>
+        <ul>
+          <li>Tanggal: 22 Juni 2025</li>
+          <li>Tempat: Ruang Seni</li>
+          <li>Peserta: Siswa kelas X</li>
+        </ul>
+        <p>Menggambar secara individu dengan tema bebas.</p>
+      </div>
+      <div class="event-card">
+        <h3>Lomba Cerdas Cermat</h3>
+        <ul>
+          <li>Tanggal: 25 Juni 2025</li>
+          <li>Tempat: Aula Utama</li>
+          <li>Peserta: Perwakilan tiap kelas</li>
+        </ul>
+        <p>Lomba pengetahuan umum antar kelas untuk mengasah wawasan siswa.</p>
+      </div>
+      <div class="event-card">
+        <h3>Workshop Teknologi</h3>
+        <ul>
+          <li>Tanggal: 28 Juni 2025</li>
+          <li>Tempat: Lab Komputer</li>
+          <li>Peserta: Siswa RPL & TKJ</li>
+        </ul>
+        <p>Pelatihan pemrograman dan jaringan komputer bersama praktisi industri.</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2025 Event SMKN 8 Jember. Dibuat dengan semangat oleh Lina😎</p>
+  </footer>
+  <script>
+    // Loading overlay logic
+    window.addEventListener('load', function() {
+      const overlay = document.getElementById('loading-overlay');
+      overlay.style.opacity = 0;
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 1200);
+    });
+  </script>
+</body>
+</html>

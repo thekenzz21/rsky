@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Pendaftaran Event Sekolah</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #593b27;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #ff9800;
+    }
+    .form-wrapper {
+      max-width: 500px;
+      margin: 2rem auto;
+      background: #fff3e0;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border-left: 5px solid #ff9800;
+    }
+    h2 {
+      text-align: center;
+      color: #ff9800;
+      font-family: 'comic sans ms', cursive;
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #593b27;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ff9800;
+      border-radius: 6px;
+      font-size: 1rem;
+      background: #fff;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus {
+      border-color: #ff5e00;
+      outline: none;
+    }
+    button {
+      background: #ff8800;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      border-radius: 20px;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #ff5e00;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .success {
+      color: green;
+      margin-top: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+    footer {
+      background: #2e1f14;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-radius: 0 0 12px 12px;
+    }
+    /* Loading overlay styles */
+    #loading-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.95);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.7s;
+    }
+    .spinner {
+      border: 8px solid #ffe0b2;
+      border-top: 8px solid #ff9800;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      animation: spin 2s linear infinite;
+      margin-bottom: 16px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+    .loading-text {
+      font-family: 'comic sans ms', cursive;
+      color: #ff9800;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 10px;
+      display: block;
+    }
+    @media (max-width: 700px) {
+      .form-wrapper {
+        padding: 1rem;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Overlay -->
+  <div id="loading-overlay">
+    <div>
+      <div class="spinner"></div>
+      <div class="loading-text">Memuat halaman...</div>
+    </div>
+  </div>
+  <header>
+    <h1>Form Pendaftaran Event Sekolah</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="tentang-kami.html">Tentang Kami</a></li>
+        <li><a href="jurusan.html">Jurusan</a></li>
+        <li><a href="event.html">Event</a></li>
+        <li><a href="medsos.html">Medsos</a></li>
+        <li><a href="pendaftaran.html">Daftar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="form-wrapper">
+    <h2>Form Pendaftaran Event Sekolah</h2>
+    <form id="eventForm" onsubmit="return validateForm()">
+      <label for="name">Nama Lengkap:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="nisn">NISN:</label>
+      <input type="text" id="nisn" name="nisn" required>
+
+      <label for="kelas">Kelas:</label>
+      <select id="kelas" name="kelas" required>
+        <option value="">-- Pilih Kelas --</option>
+        <option value="X">X</option>
+        <option value="XI">XI</option>
+        <option value="XII">XII</option>
+      </select>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="kegiatan">Pilih Kegiatan:</label>
+      <select id="kegiatan" name="kegiatan" required>
+        <option value="">-- Pilih Kegiatan --</option>
+        <option value="Gelar Karya Tari">Gelar Karya Tari</option>
+        <option value="Gelar Karya Menyanyi">Gelar Karya Menyanyi</option>
+        <option value="Gelar Karya Menggambar">Gelar Karya Menggambar</option>
+        <option value="Lomba Cerdas Cermat">Lomba Cerdas Cermat</option>
+        <option value="Workshop Teknologi">Workshop Teknologi</option>
+      </select>
+
+      <button type="submit">Daftar</button>
+      <p id="message"></p>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 SMKN 8 Jember. Dibuat dengan semangat oleh Lina😎</p>
+  </footer>
+  <script>
+    // Loading overlay logic
+    window.addEventListener('load', function() {
+      const overlay = document.getElementById('loading-overlay');
+      overlay.style.opacity = 0;
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 1200);
+    });
+
+    function validateForm() {
+      const name = document.getElementById("name").value.trim();
+      const nisn = document.getElementById("nisn").value.trim();
+      const kelas = document.getElementById("kelas").value;
+      const email = document.getElementById("email").value.trim();
+      const kegiatan = document.getElementById("kegiatan").value;
+      const message = document.getElementById("message");
+
+      // Reset pesan
+      message.textContent = "";
+      message.className = "";
+
+      // Validasi wajib isi
+      if (!name || !nisn || !kelas || !email || !kegiatan) {
+        message.textContent = "Semua kolom wajib diisi.";
+        message.className = "error";
+        return false;
+      }
+
+      // Validasi NISN: 10 digit angka
+      if (!/^\d{10}$/.test(nisn)) {
+        message.textContent = "NISN harus terdiri dari 10 digit angka.";
+        message.className = "error";
+        return false;
+      }
+
+      // Validasi email sederhana
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        message.textContent = "Format email tidak valid.";
+        message.className = "error";
+        return false;
+      }
+
+      // Tampilkan pesan sukses
+      message.textContent = "Pendaftaran berhasil! Terima kasih telah mendaftar.";
+      message.className = "success";
+
+      // return false agar tidak refresh halaman (ubah ke true jika ingin submit ke server)
+      return false;
+    }
+  </script>
+</body>
+</html>

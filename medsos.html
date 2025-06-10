@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Sosial SMKN 8 Jember</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #593b27;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #ff9800;
+    }
+    section {
+      padding: 2rem;
+    }
+    section h2 {
+      color: #593b27;
+    }
+    .sosmed-list {
+      list-style: none;
+      padding: 0;
+    }
+    .sosmed-list li {
+      margin: 1rem 0;
+      font-size: 1.2rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .sosmed-list li:hover {
+      transform: translateX(10px) scale(1.04);
+      box-shadow: 0 4px 16px rgba(255,152,0,0.10);
+    }
+    .sosmed-list a {
+      color: #ff9800;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    .sosmed-list a:hover {
+      text-decoration: underline;
+      color: #ff5e00;
+    }
+    footer {
+      background: #2e1f14;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    /* Loading overlay styles */
+    #loading-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.95);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.7s;
+    }
+    .spinner {
+      border: 8px solid #ffe0b2;
+      border-top: 8px solid #ff9800;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      animation: spin 2s linear infinite;
+      margin-bottom: 16px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+    .loading-text {
+      font-family: 'comic sans ms', cursive;
+      color: #ff9800;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 10px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Overlay -->
+  <div id="loading-overlay">
+    <div>
+      <div class="spinner"></div>
+      <div class="loading-text">Memuat halaman...</div>
+    </div>
+  </div>
+  <header>
+    <h1>Media Sosial SMKN 8 Jember</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="tentang-kami.html">Tentang Kami</a></li>
+        <li><a href="jurusan.html">Jurusan</a></li>
+        <li><a href="event.html">Event</a></li>
+        <li><a href="medsos.html">Medsos</a></li>
+        <li><a href="pendaftaran.html">Daftar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Ikuti Kami di Media Sosial</h2>
+    <ul class="sosmed-list">
+      <li>
+        <a href="https://instagram.com/smkn8jember" target="_blank">Instagram: @smkn8jember</a>
+      </li>
+      <li>
+        <a href="https://facebook.com/smkn8jember" target="_blank">Facebook: SMKN 8 Jember</a>
+      </li>
+      <li>
+        <a href="https://tiktok.com/@smkn8jember_official" target="_blank">TikTok: @smkn8jember_official</a>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SMKN 8 Jember. Dibuat dengan semangat oleh Lina😎</p>
+  </footer>
+  <script>
+    // Loading overlay logic
+    window.addEventListener('load', function() {
+      const overlay = document.getElementById('loading-overlay');
+      overlay.style.opacity = 0;
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 1200);
+    });
+  </script>
+</body>
+</html>

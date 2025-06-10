@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jurusan SMKN 8 Jember</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #593b27;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #ff9800;
+    }
+    section {
+      padding: 2rem;
+    }
+    section h2 {
+      color: #593b27;
+    }
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      margin-top: 2rem;
+    }
+    .jurusan-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff3e0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      min-width: 400px;
+      transition: box-shadow 0.4s;
+    }
+    .jurusan-table th, .jurusan-table td {
+      padding: 1rem;
+      border-bottom: 1px solid #ff9800;
+      text-align: left;
+      transition: background 0.3s, color 0.3s;
+    }
+    .jurusan-table th {
+      background: #ff9800;
+      color: #fff;
+      font-family: 'comic sans ms';
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+    .jurusan-table tr:last-child td {
+      border-bottom: none;
+    }
+    .jurusan-table tbody tr:hover {
+      background: #ffe0b2;
+      color: #ff9800;
+      transition: background 0.3s, color 0.3s;
+    }
+    .jurusan-table tbody tr:hover td {
+      background: #ffe0b2;
+      color: #ff9800;
+    }
+    @media (max-width: 700px) {
+      .jurusan-table th, .jurusan-table td {
+        padding: 0.7rem;
+        font-size: 0.95rem;
+      }
+    }
+    .card {
+      background: #fff3e0;
+      border-left: 5px solid #ff9800;
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    footer {
+      background: #2e1f14;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    /* Loading overlay styles */
+    #loading-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.95);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.7s;
+    }
+    .spinner {
+      border: 8px solid #ffe0b2;
+      border-top: 8px solid #ff9800;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      animation: spin 2s linear infinite;
+      margin-bottom: 16px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+    .loading-text {
+      font-family: 'comic sans ms', cursive;
+      color: #ff9800;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 10px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Overlay -->
+  <div id="loading-overlay">
+    <div>
+      <div class="spinner"></div>
+      <div class="loading-text">Memuat halaman...</div>
+    </div>
+  </div>
+  <header>
+    <h1>Jurusan SMKN 8 Jember</h1>
+    <nav>
+       <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="tentang-kami.html">Tentang Kami</a></li>
+        <li><a href="jurusan.html">Jurusan</a></li>
+        <li><a href="event.html">Event</a></li>
+        <li><a href="medsos.html">Medsos</a></li>
+        <li><a href="pendaftaran.html">Daftar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Daftar Jurusan</h2>
+    <div class="table-responsive">
+      <table class="jurusan-table">
+        <thead>
+          <tr>
+            <th>Nama Jurusan</th>
+            <th>Deskripsi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rekayasa Perangkat Lunak (RPL)</td>
+            <td>Mempelajari pembuatan aplikasi, website, dan pemrograman komputer. Cocok untuk kamu yang suka coding dan teknologi.</td>
+          </tr>
+          <tr>
+            <td>Teknik Komputer dan Jaringan (TKJ)</td>
+            <td>Fokus pada jaringan komputer, perakitan, dan pemeliharaan perangkat keras serta software jaringan.</td>
+          </tr>
+          <tr>
+            <td>Teknik Kendaraan Ringan (TKR)</td>
+            <td>Mempelajari perawatan dan perbaikan kendaraan bermotor roda empat, cocok untuk yang ingin berkarir di bidang otomotif.</td>
+          </tr>
+          <tr>
+            <td>Teknik Sepeda Motor (TSM)</td>
+            <td>Spesialisasi pada perawatan dan perbaikan sepeda motor, baik mesin maupun kelistrikan.</td>
+          </tr>
+          <tr>
+            <td>Desain Komunikasi Visual (DKV)</td>
+            <td>Mempelajari desain grafis, ilustrasi, animasi, dan media kreatif lainnya untuk kebutuhan komunikasi visual.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SMKN 8 Jember. Dibuat dengan semangat oleh Lina😎</p>
+  </footer>
+  <script>
+    // Loading overlay logic
+    window.addEventListener('load', function() {
+      const overlay = document.getElementById('loading-overlay');
+      overlay.style.opacity = 0;
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 1200);
+    });
+  </script>
+</body>
+</html>
